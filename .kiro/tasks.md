@@ -216,7 +216,7 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - Create dependency injection setup for services (FastAPI `Depends`)
     - _Requirements: 6.9, 11.1, 11.3, 11.4_
 
-- [ ] 16. Final checkpoint - Ensure all tests pass
+- [x] 16. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
