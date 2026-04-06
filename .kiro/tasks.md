@@ -210,8 +210,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 13: API 422 for Invalid Input**
     - **Validates: Requirements 6.8**
 
-- [ ] 15. App wiring and startup
-  - [ ] 15.1 Wire FastAPI app with all routers, CORS, and startup events
+- [x] 15. App wiring and startup
+  - [x] 15.1 Wire FastAPI app with all routers, CORS, and startup events
     - Update `backend/app/main.py` to include all routers under `/api/v1/` prefix, register exception handlers, configure CORS middleware from settings, run Alembic migrations on startup, validate configuration on startup
     - Create dependency injection setup for services (FastAPI `Depends`)
     - _Requirements: 6.9, 11.1, 11.3, 11.4_
