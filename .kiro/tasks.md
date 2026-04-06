@@ -6,14 +6,14 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
 
 ## Tasks
 
-- [ ] 1. Project scaffolding and configuration
-  - [ ] 1.1 Create backend project structure with pyproject.toml and dependencies
+- [x] 1. Project scaffolding and configuration
+  - [x] 1.1 Create backend project structure with pyproject.toml and dependencies
     - Create `backend/` directory with `pyproject.toml` listing FastAPI, SQLAlchemy, Alembic, adb-shell, pycryptodome, reportlab, hypothesis, pytest, httpx, factory-boy, pytest-asyncio
     - Create package structure: `backend/app/`, `backend/app/api/`, `backend/app/services/`, `backend/app/models/`, `backend/app/schemas/`, `backend/tests/`
     - Create `backend/app/__init__.py`, `backend/app/main.py` with minimal FastAPI app
     - _Requirements: 11.1_
 
-  - [ ] 1.2 Implement configuration module with environment variable loading
+  - [x] 1.2 Implement configuration module with environment variable loading
     - Create `backend/app/config.py` with Pydantic `Settings` class loading DATABASE_URL, ADB_PATH, CORS_ORIGINS, SIGNING_KEY_PATH, SERVER_PORT from environment
     - Raise `ConfigurationError` with the missing key name when required values are absent
     - _Requirements: 11.2, 11.4_
@@ -24,14 +24,14 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 22: Configuration Validation for Missing Values**
     - **Validates: Requirements 11.4**
 
-  - [ ] 1.4 Set up SQLAlchemy engine, session factory, and Alembic migrations
+  - [x] 1.4 Set up SQLAlchemy engine, session factory, and Alembic migrations
     - Create `backend/app/database.py` with engine creation, `SessionLocal`, and `Base` declarative base
     - Initialize Alembic in `backend/alembic/` with `env.py` pointing to app models
     - Create initial migration
     - _Requirements: 7.1, 11.3_
 
-- [ ] 2. Data models and error hierarchy
-  - [ ] 2.1 Implement all SQLAlchemy ORM models
+- [-] 2. Data models and error hierarchy
+  - [x] 2.1 Implement all SQLAlchemy ORM models
     - Create `backend/app/models/` with Case, MessageRecord, NotificationRecord, ContactRecord, MediaReference, RecoveredMedia, ChainOfCustodyEntry, EvidenceHash, EncryptionKey, ForensicReport as defined in design
     - Implement all relationships, foreign keys, and cascade rules
     - Add ORM event listener on ChainOfCustodyEntry to prevent UPDATE and DELETE (append-only enforcement)
@@ -47,7 +47,7 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 16: Referential Integrity Enforcement**
     - **Validates: Requirements 7.5**
 
-  - [ ] 2.3 Implement error hierarchy
+  - [-] 2.3 Implement error hierarchy
     - Create `backend/app/errors.py` with ForensicServiceError base and all subclasses: DeviceNotFoundError, DeviceConnectionError, FileNotFoundOnDeviceError, ShellCommandError, APKDowngradeError, DecryptionError, KeyMismatchError, CorruptedDatabaseError, NotificationSourceUnavailableError, TamperDetectedError, CaseNotFoundError, ReportGenerationError, ConfigurationError
     - _Requirements: 2.4, 2.5, 3.6, 3.7, 4.5, 4.6, 4.7, 5.6, 5.7, 6.7, 6.8_
 

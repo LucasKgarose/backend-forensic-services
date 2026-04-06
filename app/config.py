@@ -1,9 +1,9 @@
-from pydantic import BaseSettings, ValidationError
-from typing import List, Optional
-import os
+from pydantic_settings import BaseSettings
+from pydantic import ValidationError
+from typing import List
 
-class ConfigurationError(Exception):
-    pass
+from app.errors import ConfigurationError
+
 
 class Settings(BaseSettings):
     DATABASE_URL: str
@@ -12,16 +12,14 @@ class Settings(BaseSettings):
     SIGNING_KEY_PATH: str
     SERVER_PORT: int = 8000
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
 
 def get_settings() -> Settings:
     try:
         return Settings()
     except ValidationError as e:
-        missing = [err['loc'][0] for err in e.errors() if err['type'] == 'value_error.missing']
+        missing = [err['loc'][0] for err in e.errors() if err['type'] == 'missing']
         if missing:
             raise ConfigurationError(f"Missing required config: {', '.join(missing)}")
         raise
