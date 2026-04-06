@@ -156,8 +156,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 20: Media File Serving Round-Trip**
     - **Validates: Requirements 10.8**
 
-- [-] 12. Report Generator Service
-  - [-] 12.1 Implement Report_Generator_Service
+- [x] 12. Report Generator Service
+  - [x] 12.1 Implement Report_Generator_Service
     - Create `backend/app/services/report_generator_service.py` implementing generate_report and get_report
     - Use ReportLab to produce PDF with: title page (case number, investigator, timestamp, device info), evidence timeline, gap analysis, activity heatmap, chain of custody section, SHA-256 hash verification values
     - Compute evidence hash of generated PDF, apply digital signature, log chain of custody
@@ -167,40 +167,40 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 17: Forensic Report Valid PDF with Required Content**
     - **Validates: Requirements 8.1, 8.2, 8.3, 8.6, 8.7**
 
-- [ ] 13. Test fixtures and factories
-  - [ ] 13.1 Create shared test infrastructure
+- [x] 13. Test fixtures and factories
+  - [x] 13.1 Create shared test infrastructure
     - Create `backend/tests/conftest.py` with in-memory SQLite test database, SQLAlchemy session fixture, FastAPI TestClient fixture
     - Create `backend/tests/factories.py` with factory_boy factories for Case, MessageRecord, NotificationRecord, ContactRecord, MediaReference, RecoveredMedia, ChainOfCustodyEntry
     - Create Hypothesis strategies module at `backend/tests/strategies.py` with message_records, notification_records, artifact_bytes, case_inputs, media_file_names strategies as defined in design
     - _Requirements: all (testing infrastructure)_
 
-- [ ] 14. API layer - routers and exception handlers
-  - [ ] 14.1 Implement FastAPI exception handlers
+- [x] 14. API layer - routers and exception handlers
+  - [x] 14.1 Implement FastAPI exception handlers
     - Create `backend/app/api/exception_handlers.py` mapping all domain exceptions to HTTP responses per the design error handling table
     - Register handlers in the FastAPI app
     - _Requirements: 6.7, 6.8_
 
-  - [ ] 14.2 Implement Cases router
+  - [x] 14.2 Implement Cases router
     - Create `backend/app/api/cases.py` with POST / (create case), GET / (list cases), GET /{case_id} (case metadata), GET /{case_id}/messages, GET /{case_id}/notifications, GET /{case_id}/contacts, GET /{case_id}/media-references, GET /{case_id}/chain-of-custody
     - Wire to services, return Pydantic response models
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 9.8_
 
-  - [ ] 14.3 Implement Devices router
+  - [x] 14.3 Implement Devices router
     - Create `backend/app/api/devices.py` with GET / (discover), POST /{serial}/connect, POST /{serial}/disconnect, POST /{serial}/pull-file, POST /{serial}/shell, POST /{serial}/extract-notifications, POST /{serial}/apk-downgrade, POST /{serial}/recover-media
     - Wire to ADB_Bridge, Notification_Log, APK_Downgrade, Media_Recovery services
     - _Requirements: 6.6_
 
-  - [ ] 14.4 Implement Evidence router
+  - [x] 14.4 Implement Evidence router
     - Create `backend/app/api/evidence.py` with POST /decrypt, POST /verify, GET /{case_id}/recovered-media, GET /{case_id}/recovered-media/{media_id}
     - Wire to Decryption_Service, Legal_Lock_Service, Media_Recovery_Service
     - _Requirements: 6.6, 9.9, 10.7, 10.8_
 
-  - [ ] 14.5 Implement Reports router
+  - [x] 14.5 Implement Reports router
     - Create `backend/app/api/reports.py` with POST / (generate report), GET /{case_id}/{report_id} (download PDF)
     - Wire to Report_Generator_Service
     - _Requirements: 6.6_
 
-  - [ ] 14.6 Implement Health router
+  - [x] 14.6 Implement Health router
     - Create `backend/app/api/health.py` with GET / returning server status, database connectivity, ADB availability
     - _Requirements: 11.5_
 
