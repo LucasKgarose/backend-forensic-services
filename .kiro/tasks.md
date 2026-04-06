@@ -127,8 +127,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 9: APK Downgrade Status Report Completeness**
     - **Validates: Requirements 4.9**
 
-- [ ] 9. Decryption Service
-  - [ ] 9.1 Implement Decryption_Service
+- [x] 9. Decryption Service
+  - [x] 9.1 Implement Decryption_Service
     - Create `backend/app/services/decryption_service.py` implementing decrypt_database, get_messages, get_contacts, get_media_references
     - Support crypt14 and crypt15 formats using pycryptodome
     - Parse decrypted SQLite DB to extract MessageRecords, ContactRecords, MediaReferences
