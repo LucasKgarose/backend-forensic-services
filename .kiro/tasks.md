@@ -102,8 +102,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - Mock subprocess/adb-shell calls
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.3_
 
-- [-] 7. Notification Log Service
-  - [-] 7.1 Implement Notification_Log_Service
+- [x] 7. Notification Log Service
+  - [x] 7.1 Implement Notification_Log_Service
     - Create `backend/app/services/notification_log_service.py` implementing extract_notifications and get_notifications
     - Pull notification scraper DB from device via ADB_Bridge, parse SQLite, filter for com.whatsapp, compute evidence hash, log chain of custody, persist NotificationRecords
     - Return data in Phase 1 envelope format (deviceIMEI, exportDate, entries)
@@ -113,8 +113,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 4: Notification WhatsApp Filtering**
     - **Validates: Requirements 3.2**
 
-- [ ] 8. APK Downgrade Service
-  - [ ] 8.1 Implement APK_Downgrade_Service
+- [x] 8. APK Downgrade Service
+  - [x] 8.1 Implement APK_Downgrade_Service
     - Create `backend/app/services/apk_downgrade_service.py` implementing execute_downgrade and get_downgrade_status
     - Steps: backup current APK → install old APK → extract encryption key → restore original APK
     - Rollback on any step failure (restore from backup), log chain of custody for each step
