@@ -85,8 +85,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 2: Chain of Custody Entry Completeness**
     - **Validates: Requirements 1.6, 2.6, 3.5, 4.8, 5.9, 8.9, 9.6, 10.6**
 
-- [ ] 6. ADB Bridge Service
-  - [ ] 6.1 Implement ADB_Bridge_Service
+- [x] 6. ADB Bridge Service
+  - [x] 6.1 Implement ADB_Bridge_Service
     - Create `backend/app/services/adb_bridge_service.py` implementing discover_devices, connect, disconnect, get_connection_status, pull_file, execute_shell
     - Use adb-shell or subprocess calls to ADB binary
     - Compute SHA-256 hash on pulled files, log chain of custody entries for all operations
@@ -102,8 +102,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - Mock subprocess/adb-shell calls
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.3_
 
-- [ ] 7. Notification Log Service
-  - [ ] 7.1 Implement Notification_Log_Service
+- [-] 7. Notification Log Service
+  - [-] 7.1 Implement Notification_Log_Service
     - Create `backend/app/services/notification_log_service.py` implementing extract_notifications and get_notifications
     - Pull notification scraper DB from device via ADB_Bridge, parse SQLite, filter for com.whatsapp, compute evidence hash, log chain of custody, persist NotificationRecords
     - Return data in Phase 1 envelope format (deviceIMEI, exportDate, entries)
