@@ -139,11 +139,11 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 7: WhatsApp DB Parser Field Extraction**
     - **Validates: Requirements 5.3, 5.4, 5.5**
 
-- [ ] 10. Checkpoint - Ensure all tests pass
+- [x] 10. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 11. Media Recovery Service
-  - [ ] 11.1 Implement Media_Recovery_Service
+- [x] 11. Media Recovery Service
+  - [x] 11.1 Implement Media_Recovery_Service
     - Create `backend/app/services/media_recovery_service.py` implementing scan_and_recover, get_recovered_media, get_media_file
     - Scan WhatsApp media directories via ADB, pull files, classify by extension, compute evidence hashes, cross-reference with MessageRecords, log chain of custody
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.9_
@@ -156,8 +156,8 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 20: Media File Serving Round-Trip**
     - **Validates: Requirements 10.8**
 
-- [ ] 12. Report Generator Service
-  - [ ] 12.1 Implement Report_Generator_Service
+- [-] 12. Report Generator Service
+  - [-] 12.1 Implement Report_Generator_Service
     - Create `backend/app/services/report_generator_service.py` implementing generate_report and get_report
     - Use ReportLab to produce PDF with: title page (case number, investigator, timestamp, device info), evidence timeline, gap analysis, activity heatmap, chain of custody section, SHA-256 hash verification values
     - Compute evidence hash of generated PDF, apply digital signature, log chain of custody
