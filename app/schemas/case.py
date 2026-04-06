@@ -1,20 +1,35 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List, Optional
-from datetime import datetime
+
+
+class CreateCaseRequest(BaseModel):
+    caseNumber: str
+    investigatorId: str
+    deviceSerial: str | None = None
+    deviceIMEI: str | None = None
+    osVersion: str | None = None
+    notes: list[str] = []
+
 
 class DataSourceSummaryResponse(BaseModel):
-    type: str
+    type: str  # "NOTIFICATION_LOG" | "DECRYPTED_DATABASE"
+    fileName: str
+    loadedAt: int
     recordCount: int
+
 
 class CaseResponse(BaseModel):
     caseNumber: str
-    createdAt: datetime
+    createdAt: int  # Unix epoch ms
     investigatorId: str
-    deviceSerial: str
-    dataSources: List[DataSourceSummaryResponse]
+    deviceIMEI: str
+    osVersion: str
+    notes: list[str]
+    dataSources: list[DataSourceSummaryResponse]
+
 
 class CaseSummary(BaseModel):
     caseNumber: str
-    createdAt: datetime
+    createdAt: int  # Unix epoch ms
     investigatorId: str
-    deviceSerial: str
+    deviceIMEI: str

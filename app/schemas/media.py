@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+
 
 class MediaReferenceResponse(BaseModel):
     id: str
@@ -7,11 +7,13 @@ class MediaReferenceResponse(BaseModel):
     fileName: str
     messageId: str | None
 
+
 class RecoveredMediaResponse(BaseModel):
     id: str
-    filePath: str
     mediaType: str
-
-class FileResponse(BaseModel):
     fileName: str
-    content: bytes
+    devicePath: str
+    localPath: str
+    evidenceHash: str
+    recoveredAt: int  # Unix epoch ms
+    messageId: str | None = None

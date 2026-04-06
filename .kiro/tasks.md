@@ -30,7 +30,7 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - Create initial migration
     - _Requirements: 7.1, 11.3_
 
-- [-] 2. Data models and error hierarchy
+- [x] 2. Data models and error hierarchy
   - [x] 2.1 Implement all SQLAlchemy ORM models
     - Create `backend/app/models/` with Case, MessageRecord, NotificationRecord, ContactRecord, MediaReference, RecoveredMedia, ChainOfCustodyEntry, EvidenceHash, EncryptionKey, ForensicReport as defined in design
     - Implement all relationships, foreign keys, and cascade rules
@@ -47,12 +47,12 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 16: Referential Integrity Enforcement**
     - **Validates: Requirements 7.5**
 
-  - [-] 2.3 Implement error hierarchy
+  - [x] 2.3 Implement error hierarchy
     - Create `backend/app/errors.py` with ForensicServiceError base and all subclasses: DeviceNotFoundError, DeviceConnectionError, FileNotFoundOnDeviceError, ShellCommandError, APKDowngradeError, DecryptionError, KeyMismatchError, CorruptedDatabaseError, NotificationSourceUnavailableError, TamperDetectedError, CaseNotFoundError, ReportGenerationError, ConfigurationError
     - _Requirements: 2.4, 2.5, 3.6, 3.7, 4.5, 4.6, 4.7, 5.6, 5.7, 6.7, 6.8_
 
-- [ ] 3. Pydantic schemas
-  - [ ] 3.1 Implement all Pydantic request/response schemas
+- [x] 3. Pydantic schemas
+  - [x] 3.1 Implement all Pydantic request/response schemas
     - Create `backend/app/schemas/` with request models (CreateCaseRequest, ConnectRequest, PullFileRequest, ShellCommandRequest, ExtractNotificationsRequest, APKDowngradeRequest, DecryptRequest, VerifyRequest, GenerateReportRequest, RecoverMediaRequest) and response models (CaseResponse, NotificationLogEnvelope, DecryptedDatabaseEnvelope, ChainOfCustodyResponse, HealthResponse, etc.) matching the design document
     - Ensure envelope formats match Phase 1 frontend expectations (camelCase field names, Unix epoch ms timestamps)
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
@@ -63,11 +63,11 @@ Build a standalone Python 3.11+ FastAPI backend in `backend/` that provides fore
     - **Property 6: Message Record Serialization Round-Trip**
     - **Validates: Requirements 5.10, 6.1**
 
-- [ ] 4. Checkpoint - Ensure all tests pass
+- [x] 4. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 5. Legal Lock Service (core dependency for other services)
-  - [ ] 5.1 Implement Legal_Lock_Service
+- [x] 5. Legal Lock Service (core dependency for other services)
+  - [x] 5.1 Implement Legal_Lock_Service
     - Create `backend/app/services/legal_lock_service.py` implementing compute_and_store_hash, verify_artifact, get_chain_of_custody, log_custody_entry, sign_report
     - SHA-256 hashing via hashlib, digital signatures via pycryptodome RSA
     - Persist EvidenceHash and ChainOfCustodyEntry records to database

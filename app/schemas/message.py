@@ -1,16 +1,17 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List
+
 
 class DecryptedDbEntryResponse(BaseModel):
     id: str
     sender: str
     content: str
-    timestamp: int
-    readStatus: bool
-    deliveryStatus: Optional[str]
-    deleted: bool
-    mediaReferenceIds: Optional[List[str]]
-    deliveredTimestamp: Optional[int]
+    timestamp: int  # Unix epoch ms
+    status: str  # "READ" | "DELIVERED" | "DELETED"
+    isDeleted: bool
+    readTimestamp: int | None
+    deliveredTimestamp: int | None
+
 
 class DecryptedDatabaseEnvelope(BaseModel):
     deviceIMEI: str
